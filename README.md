@@ -51,9 +51,9 @@
 ╚═╝     ╚══════╝   ╚═╝   ╚══════╝╚═════╝ ╚═╝╚═════╝ ╚══════╝   ╚═╝
 
 ---------------------------------------------------------------------------------
-  Header, SSL/TLS & Port Scanner by Feyzullah Demir
+  Header, SSL/TLS, Zafiyet ve Port Scanner by Feyzullah Demir
 ---------------------------------------------------------------------------------
-This tool allows you to perform header, SSL/TLS, and port scans on a specified host.
+This tool allows you to perform header, SSL/TLS, vulnerability scans, and port scans.
 ---------------------------------------------------------------------------------
 
 Choose an option:
@@ -61,46 +61,91 @@ Choose an option:
 2) SSL/TLS Checker (SSL/TLS Security Check)
 3) Port Scanner (Port Scan)
 4) Perform All Checks (Header, SSL/TLS, Port Scanner)
-5) Exit
-Select an option (1/2/3/4/5):
+5) Vulnerability Scanning (CVSS, OWASP Top 10)
+6) Exit
 
----------------------------------------------------------------------------------
-Starting All Checks...
-Enter domain or IP: testphp.vulnweb.com
+Select an option (1/2/3/4/5/6): 5
 
-Performing header scan...
-✔ Strict-Transport-Security: Header mevcut.
-❌ X-Content-Type-Options: Header eksik (Zafiyet var).
-✔ X-Frame-Options: Header mevcut.
-❌ X-XSS-Protection: Header eksik (Zafiyet var).
-❌ Referrer-Policy: Header eksik (Zafiyet var).
-❌ Permissions-Policy: Header eksik (Zafiyet var).
-✔ Server: nginx
-❌ X-Powered-By bilgisi bulunamadı.
+Starting Vulnerability Scanning...
+Enter domain or IP: www.example.com
 
-Performing SSL/TLS check...
-✔ SSL Sertifikası mevcut.
-Cert Start: Jan 25 00:00:00 2025 GMT
-Cert End:   Apr 25 23:59:59 2025 GMT
-✔ TLS 1.2 desteği mevcut.
-✔ TLS 1.3 desteği mevcut.
+✔ Reflected XSS vulnerability detected!
+❌ No SQL Injection detected.
+✔ CSRF vulnerability detected!
+✔ Clickjacking vulnerability detected!
+✔ Open Redirect vulnerability detected!
 
-Performing port scan...
-PORT      STATE  SERVICE
-22/tcp    open   ssh
-80/tcp    open   http
-443/tcp   open   https
+Scan Results:
+------------------------------------
+- Reflected XSS: ✔ Vulnerability Detected
+- SQL Injection: ❌ No Vulnerability Detected
+- CSRF: ✔ Vulnerability Detected
+- Clickjacking: ✔ Vulnerability Detected
+- Open Redirect: ✔ Vulnerability Detected
+------------------------------------
+CVSS Score:
+- Reflected XSS: 7.5 (High)
+- SQL Injection: N/A
+- CSRF: 5.0 (Medium)
+- Clickjacking: 4.0 (Medium)
+- Open Redirect: 4.5 (Medium)
 
-Security Summary:
---------------------------
-Headers Missing   : 4
-SSL Status        : Secure
-TLS Versions      : OK (1.2, 1.3)
-Open Ports        : 22, 80, 443
-Risky Ports Found : 22 (DMZ önerilmez)
---------------------------
+Risk Level: **High** (Multiple critical vulnerabilities detected)
 
-Returning to main menu...
+Would you like to:
+1) Go Back to Main Menu
+2) Exit
+Select option (1/2): 1
+
+Choose an option:
+1) Header Scanner (Header Control)
+2) SSL/TLS Checker (SSL/TLS Security Check)
+3) Port Scanner (Port Scan)
+4) Perform All Checks (Header, SSL/TLS, Port Scanner)
+5) Vulnerability Scanning (CVSS, OWASP Top 10)
+6) Exit
+
+Select an option (1/2/3/4/5/6): 3
+
+Starting Port Scanner...
+Enter domain or IP: www.example.com
+
+Starting Nmap 7.98 ( https://nmap.org ) at 2025-12-11 15:00 +0300
+Stats: 0:00:14 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 1.82% done; ETC: 15:01 (0:00:35 remaining)
+Stats: 0:00:25 elapsed; 1 host completed (1 up), 1 undergoing SYN Stealth Scan
+
+Scan Results:
+------------------------------------
+- Open Ports: 
+  - 443/tcp (HTTPS)
+  - 80/tcp (HTTP)
+- Services:
+  - Apache HTTPD 2.4.41
+  - Nginx 1.14.2
+------------------------------------
+- Recommendations:
+  - Close unused ports (e.g., HTTP on port 80)
+  - Ensure all services are updated and configured securely.
+------------------------------------
+
+Would you like to:
+1) Go Back to Main Menu
+2) Exit
+Select option (1/2): 1
+
+Choose an option:
+1) Header Scanner (Header Control)
+2) SSL/TLS Checker (SSL/TLS Security Check)
+3) Port Scanner (Port Scan)
+4) Perform All Checks (Header, SSL/TLS, Port Scanner)
+5) Vulnerability Scanning (CVSS, OWASP Top 10)
+6) Exit
+
+Select an option (1/2/3/4/5/6): 6
+Exiting... Goodbye!
+
+
 
  ```
 
