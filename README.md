@@ -63,5 +63,44 @@ Choose an option:
 4) Perform All Checks (Header, SSL/TLS, Port Scanner)
 5) Exit
 Select an option (1/2/3/4/5):
+
+---------------------------------------------------------------------------------
+Starting All Checks...
+Enter domain or IP: testphp.vulnweb.com
+
+Performing header scan...
+✔ Strict-Transport-Security: Header mevcut.
+❌ X-Content-Type-Options: Header eksik (Zafiyet var).
+✔ X-Frame-Options: Header mevcut.
+❌ X-XSS-Protection: Header eksik (Zafiyet var).
+❌ Referrer-Policy: Header eksik (Zafiyet var).
+❌ Permissions-Policy: Header eksik (Zafiyet var).
+✔ Server: nginx
+❌ X-Powered-By bilgisi bulunamadı.
+
+Performing SSL/TLS check...
+✔ SSL Sertifikası mevcut.
+Cert Start: Jan 25 00:00:00 2025 GMT
+Cert End:   Apr 25 23:59:59 2025 GMT
+✔ TLS 1.2 desteği mevcut.
+✔ TLS 1.3 desteği mevcut.
+
+Performing port scan...
+PORT      STATE  SERVICE
+22/tcp    open   ssh
+80/tcp    open   http
+443/tcp   open   https
+
+Security Summary:
+--------------------------
+Headers Missing   : 4
+SSL Status        : Secure
+TLS Versions      : OK (1.2, 1.3)
+Open Ports        : 22, 80, 443
+Risky Ports Found : 22 (DMZ önerilmez)
+--------------------------
+
+Returning to main menu...
+
  ```
 
